@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
         
-        // Використовуємо правильну назву файлу
         cardElement.style.backgroundImage = `url(${cardValue}.svg)`;
         
         cardElement.dataset.cardValue = cardValue;
@@ -32,11 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ПОЧАТОК ГРИ ---
     // Створюємо карти, використовуючи правильні назви файлів
-    const aceOfSpades = createCard('AS'); // <-- ЗМІНЕНО з '1S'
-    const aceOfClubs = createCard('AC');   // <-- ЗМІНЕНО з '1C'
+    const aceOfSpades = createCard('AS');
+    const aceOfClubs = createCard('AC');
+    const aceOfHearts = createCard('AH'); // <-- НОВИЙ РЯДОК
 
-    // Додаємо обидві карти в руку гравця
+    // Додаємо всі карти в руку гравця
     playerHand.appendChild(aceOfSpades);
     playerHand.appendChild(aceOfClubs);
+    playerHand.appendChild(aceOfHearts); // <-- НОВИЙ РЯДОК
 
 });
