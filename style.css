@@ -1,0 +1,55 @@
+/* Загальні стилі для сторінки */
+body {
+    background-color: #0a4a1b; /* Класичний зелений колір сукна */
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+}
+
+#game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Відстань між столом та рукою */
+    margin-top: 20px;
+}
+
+.area-container h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Контейнер для карт (рука або стіл) */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Відстань між картами */
+    padding: 20px;
+    min-height: 150px; /* Мінімальна висота, щоб зона не згорталася */
+    width: 80vw; /* Ширина зони */
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px dashed #ffffff55;
+    border-radius: 10px;
+}
+
+/* Стилі для самої карти */
+.card {
+    width: 100px;
+    height: 140px;
+    background-size: contain; /* Масштабує зображення, щоб воно повністю влізло */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 7px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.4);
+    cursor: pointer; /* Показує, що на карту можна натиснути */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Ефект при наведенні мишки на карту */
+.card:hover {
+    transform: translateY(-10px) scale(1.05); /* Підняти карту і трохи збільшити */
+    box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+}
