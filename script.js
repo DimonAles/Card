@@ -30,14 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- ПОЧАТОК ГРИ ---
-    // Створюємо карти, використовуючи правильні назви файлів
+    // Створюємо всі чотири тузи
     const aceOfSpades = createCard('AS');
     const aceOfClubs = createCard('AC');
-    const aceOfHearts = createCard('AH'); // <-- НОВИЙ РЯДОК
+    const aceOfHearts = createCard('AH');
+    const aceOfDiamonds = createCard('AD'); // <-- НОВИЙ РЯДОК
 
     // Додаємо всі карти в руку гравця
     playerHand.appendChild(aceOfSpades);
     playerHand.appendChild(aceOfClubs);
-    playerHand.appendChild(aceOfHearts); // <-- НОВИЙ РЯДОК
+    playerHand.appendChild(aceOfHearts);
+    playerHand.appendChild(aceOfDiamonds); // <-- НОВИЙ РЯДОК
 
 });
