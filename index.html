@@ -8,21 +8,32 @@
 </head>
 <body>
 
-    <h1>Прототип гри "Дурень"</h1>
+    <h1>Гра "Дурень"</h1>
 
-    <div id="game-board">
-        <div class="area-container">
-            <h2>Стіл (Куди кидати)</h2>
-            <div id="play-area" class="card-container">
-             
+    <!-- Новий контейнер для верхньої частини столу -->
+    <div id="top-area">
+        <!-- Зона для колоди -->
+        <div id="deck-area">
+            <h2>Колода</h2>
+            <div id="deck-pile">
+                <!-- Сюди JS додасть колоду та лічильник -->
             </div>
         </div>
 
+        <!-- Зона для ігрових карт (стіл) -->
         <div class="area-container">
-            <h2>Ваша рука</h2>
-            <div id="player-hand" class="card-container">
-                
+            <h2>Стіл</h2>
+            <div id="play-area" class="card-container">
+                <!-- Карти, які знаходяться в грі, з'являться тут -->
             </div>
+        </div>
+    </div>
+
+    <!-- Рука гравця залишається без змін -->
+    <div class="area-container" id="player-hand-container">
+        <h2>Ваша рука</h2>
+        <div id="player-hand" class="card-container">
+            <!-- Карти гравця з'являться тут за допомогою JS -->
         </div>
     </div>
 
