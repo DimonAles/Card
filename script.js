@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cardElement.classList.add('card');
         
         // Встановлюємо фонове зображення. Назва файлу береться з аргументу.
-        // Переконайтесь, що файл 1S.svg знаходиться в тій же папці!
         cardElement.style.backgroundImage = `url(${cardValue}.svg)`;
         
         // Зберігаємо значення карти в data-атрибуті (це знадобиться в майбутньому)
@@ -37,17 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
             playArea.appendChild(this);
         } else {
             // Якщо карта вже на столі, повертаємо її назад в руку
-            // (Це не є правилом "Дурня", але корисно для тестування на цьому етапі)
             console.log(`Забираємо карту ${this.dataset.cardValue} зі столу.`);
             playerHand.appendChild(this);
         }
     }
 
     // --- ПОЧАТОК ГРИ ---
-    // Створюємо нашу першу карту - Туз Пік (значення '1S')
+    // Створюємо карту Туз Пік
     const aceOfSpades = createCard('1S');
+    // Створюємо карту Туз Хрестовий (Туз Треф)
+    const aceOfClubs = createCard('1C'); // <-- НОВИЙ РЯДОК
 
-    // Додаємо створену карту в руку гравця
+    // Додаємо обидві карти в руку гравця
     playerHand.appendChild(aceOfSpades);
+    playerHand.appendChild(aceOfClubs); // <-- НОВИЙ РЯДОК
 
 });
