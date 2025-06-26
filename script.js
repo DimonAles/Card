@@ -5,14 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const deckPile = document.getElementById('deck-pile');
 
     // --- НАШІ КАРТИ ---
-    // Додаємо дам до списку
+    // Додаємо валетів до списку
     const initialCards = [
         'AS', 'AC', 'AH', 'AD', // Тузи
         'KS', 'KC', 'KH', 'KD', // Королі
-        'QS', 'QH', 'QD', 'QC'  // Дами (ось і вони!)
+        'QS', 'QH', 'QD', 'QC', // Дами
+        'JS', 'JC', 'JH', 'JD'  // Валети (додано!)
     ];
 
-    // --- ФУНКЦІЯ ТАСУВАННЯ КОЛОДИ (алгоритм Фішера-Єйтса) ---
+    // --- ФУНКЦІЯ ТАСУВАННЯ КОЛОДИ ---
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
