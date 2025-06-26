@@ -4,23 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const playArea = document.getElementById('play-area');
     const deckPile = document.getElementById('deck-pile');
 
-    // --- НАШІ КАРТИ (ПОКИ ЩО ВРУЧНУ) ---
-    // В майбутньому ми будемо генерувати це автоматично
+    // --- НАШІ КАРТИ ---
+    // Додаємо дам до списку
     const initialCards = [
         'AS', 'AC', 'AH', 'AD', // Тузи
-        'KS', 'KC', 'KH', 'KD'  // Королі
+        'KS', 'KC', 'KH', 'KD', // Королі
+        'QS', 'QH', 'QD', 'QC'  // Дами (ось і вони!)
     ];
 
     // --- ФУНКЦІЯ ТАСУВАННЯ КОЛОДИ (алгоритм Фішера-Єйтса) ---
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]]; // Обмін елементів
+            [array[i], array[j]] = [array[j], array[i]];
         }
     }
 
     // --- ФУНКЦІЯ ДЛЯ СТВОРЕННЯ КАРТИ ---
-    // (залишається майже без змін)
     function createCard(cardValue) {
         const cardElement = document.createElement('div');
         cardElement.classList.add('card');
@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- ФУНКЦІЯ, ЯКА ВИКОНУЄТЬСЯ ПРИ КЛІЦІ НА КАРТУ ---
-    // (залишається без змін)
     function onCardClick() {
         if (this.parentElement === playerHand) {
             playArea.appendChild(this);
@@ -42,16 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- ФУНКЦІЯ ОНОВЛЕННЯ ВИГЛЯДУ КОЛОДИ ---
     function updateDeckView(deck) {
-        // Очищуємо попередній вигляд колоди
         deckPile.innerHTML = '';
 
         if (deck.length > 0) {
-            // Якщо карти є, створюємо сорочку
             const cardBack = document.createElement('div');
             cardBack.classList.add('card-back');
             deckPile.appendChild(cardBack);
 
-            // Створюємо і додаємо лічильник
             const counter = document.createElement('div');
             counter.id = 'deck-counter';
             counter.textContent = deck.length;
@@ -61,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- ПОЧАТОК ГРИ ---
 
-    // 1. Створюємо нашу ігрову колоду з початкових карт
+    // 1. Створюємо нашу ігрову колоду
     let gameDeck = [...initialCards];
 
     // 2. Тасуємо колоду
@@ -71,9 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Роздаємо гравцеві 6 карт
     const cardsToDeal = 6;
     for (let i = 0; i < cardsToDeal; i++) {
-        // Беремо карту з кінця колоди
         const cardValue = gameDeck.pop();
-        if (cardValue) { // Перевірка, чи колода не порожня
+        if (cardValue) {
             const cardElement = createCard(cardValue);
             playerHand.appendChild(cardElement);
         }
@@ -82,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Карти в руці гравця роздано.");
     console.log("Залишок в колоді:", gameDeck);
     
-    // 4. Оновлюємо вигляд колоди на столі (показуємо сорочку і лічильник)
+    // 4. Оновлюємо вигляд колоди на столі
     updateDeckView(gameDeck);
 
 });
